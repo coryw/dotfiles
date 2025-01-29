@@ -657,6 +657,13 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
+        intelephense = {},
+        tailwindcss = {},
+        vuels = {},
+        bashls = {},
+        dockerls = {},
+        docker_compose_language_service = {},
+        pyright = {},
 
         lua_ls = {
           -- cmd = {...},
