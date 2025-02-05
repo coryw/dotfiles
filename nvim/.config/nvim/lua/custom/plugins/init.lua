@@ -11,4 +11,7 @@ return {
   { 'mbbill/undotree', event = 'VeryLazy' },
   { 'HiPhish/rainbow-delimiters.nvim', event = 'VeryLazy' },
   { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, opts = ... },
+  { 'tpope/vim-dadbod', event = 'VeryLazy' },
+  { 'kristijanhusak/vim-dadbod-ui', event = 'VeryLazy' },
+  { 'kristijanhusak/vim-dadbod-completion', event = 'VeryLazy' },
 }
