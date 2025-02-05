@@ -10,4 +10,5 @@ return {
   { 'airblade/vim-gitgutter', event = 'VeryLazy' },
   { 'mbbill/undotree', event = 'VeryLazy' },
   { 'HiPhish/rainbow-delimiters.nvim', event = 'VeryLazy' },
+  { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, opts = ... },
 }
