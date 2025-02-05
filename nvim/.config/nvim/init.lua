@@ -575,8 +575,19 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-        intelephense = {},
-        tailwindcss = {},
+        intelephense = {
+          settings = {
+            intelephense = {
+              format = {
+                enable = false,
+              },
+              diagnostics = {
+                --unusedSymbols = false,
+              },
+            },
+          },
+        },
+        --tailwindcss = {},
         vuels = {},
         bashls = {},
         dockerls = {},
