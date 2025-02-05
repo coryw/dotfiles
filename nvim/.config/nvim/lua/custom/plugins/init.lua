@@ -5,6 +5,7 @@
 return {
   { 'tummetott/unimpaired.nvim', event = 'VeryLazy' },
   { 'tpope/vim-fugitive', event = 'VeryLazy' },
+  { 'tpope/vim-rhubarb', event = 'VeryLazy' },
   { 'tpope/vim-unimpaired', event = 'VeryLazy' },
   { 'airblade/vim-gitgutter', event = 'VeryLazy' },
   { 'mbbill/undotree', event = 'VeryLazy' },
