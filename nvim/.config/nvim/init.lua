@@ -108,19 +108,19 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ Custom Keymaps ]]
 --
 vim.api.nvim_set_keymap('n', '<leader>ev', ':vsplit ~/.config/nvim/init.lua<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ep', ':vsplit ~/.config/nvim/lua/custom/plugins/init.lua<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '\\t', ':set ts=4 sts=4 sw=4 noet<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '\\s', ':set ts=4 sts=4 sw=4 et<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<tab>', '%', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<tab>', '%', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', ';', ':', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', ';', ':', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('i', '<Nul>', '<C-n>', { noremap = true, silent = true })
 
 -- File tree
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>y', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>f', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 
 -- Insert mode mappings
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true }) -- Map 'jj' to escape
@@ -130,7 +130,7 @@ vim.keymap.set('i', ';;', '<Esc>A;') -- Add a semicolon at the end of a line
 vim.keymap.set('i', ',,', '<Esc>A,') -- Add a comma at the end of a line
 vim.keymap.set('n', '<Leader>x', ':silent !open %<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>q', ':close<cr>', { noremap = true, silent = true }) -- Close the current window
-vim.api.nvim_set_keymap('n', '<leader>d', ':BD<cr>', { noremap = true, silent = true }) -- Close the current buffer
+vim.api.nvim_set_keymap('n', '<leader>d', ':bd<cr>', { noremap = true, silent = true }) -- Close the current buffer
 vim.api.nvim_set_keymap('n', '<leader>m', ':tabe <cr>', { noremap = true, silent = true }) -- Open a new tab
 
 -- General utility mappings
@@ -141,8 +141,7 @@ vim.api.nvim_set_keymap('n', '<leader>a', ':bp<cr>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', '<leader>l', ':set relativenumber!<cr>', { noremap = true, silent = true }) -- Toggle relative line numbers
 
 -- Mappings for tag navigation
-vim.api.nvim_set_keymap('n', '<leader>.', ':CtrlPTag<cr>', { noremap = true, silent = true }) -- Open CtrlP tag search
-vim.api.nvim_set_keymap('n', '<C-t>', ':TagbarToggle<cr>', { noremap = true, silent = true }) -- Toggle the Tagbar
+--vim.api.nvim_set_keymap('n', '<C-t>', ':TagbarToggle<cr>', { noremap = true, silent = true }) -- Toggle the Tagbar
 
 -- Mapping for undo tree
 vim.api.nvim_set_keymap('n', '<leader>z', ':UndotreeToggle<cr>', { noremap = true, silent = true }) -- Toggle the Undo Tree
@@ -153,19 +152,18 @@ vim.api.nvim_set_keymap('n', ']og', ':GitGutterLineHighlightsDisable<cr>', { nor
 vim.api.nvim_set_keymap('n', 'yog', ':GitGutterLineHighlightsToggle<cr>', { noremap = true, silent = true }) -- Disable line highlights for Git changes
 
 -- Mappings for search highlighting
-vim.api.nvim_set_keymap('n', '<leader>h', ':set noh<cr>', { noremap = true, silent = true }) -- Turn off search highlights
 vim.api.nvim_set_keymap('n', '<C-_>', ':set hlsearch!<cr>', { noremap = true, silent = true }) -- Toggle search highlighting
 
 -- Mappings for Git commands
 vim.api.nvim_set_keymap('n', '<leader>gs', ':G<cr>', { noremap = true, silent = true }) -- Run Git status
 vim.api.nvim_set_keymap('n', '<leader>gd', ':Gvdiff<cr>', { noremap = true, silent = true }) -- Run Git diff
-vim.api.nvim_set_keymap('n', '<leader>gv', ':Gsdiff<cr>', { noremap = true, silent = true }) -- Run Git stage diff
-vim.api.nvim_set_keymap('n', '<leader>gb', ':Gblame<cr>', { noremap = true, silent = true }) -- Run Git blame
-vim.api.nvim_set_keymap('n', '<leader>gl', ':Gbrowse<cr>', { noremap = true, silent = true }) -- Open file in Git browser
-vim.api.nvim_set_keymap('n', '<leader>gc', ':GV<cr>', { noremap = true, silent = true }) -- Open commit browser
-vim.api.nvim_set_keymap('n', '<leader>cl', ':GV<cr>', { noremap = true, silent = true }) -- (Duplicate) Open commit browser
-vim.api.nvim_set_keymap('n', '<leader>cf', ':GV!<cr>', { noremap = true, silent = true }) -- Open commit browser in full screen
-vim.api.nvim_set_keymap('n', '<leader>cr', ':GV?<cr>', { noremap = true, silent = true }) -- Open commit browser for revisions
+vim.api.nvim_set_keymap('n', '<leader>gv', ':Ghdiffsplit<cr>', { noremap = true, silent = true }) -- Run Git stage diff
+vim.api.nvim_set_keymap('n', '<leader>gb', ':G blame<cr>', { noremap = true, silent = true }) -- Run Git blame
+vim.api.nvim_set_keymap('n', '<leader>gl', ':GBrowse<cr>', { noremap = true, silent = true }) -- Open file in Git browser
+vim.api.nvim_set_keymap('n', '<leader>gc', ':Gllog<cr>', { noremap = true, silent = true }) -- Open commit browser
+--vim.api.nvim_set_keymap('n', '<leader>cl', ':G V<cr>', { noremap = true, silent = true }) -- (Duplicate) Open commit browser
+--vim.api.nvim_set_keymap('n', '<leader>cf', ':G V!<cr>', { noremap = true, silent = true }) -- Open commit browser in full screen
+--vim.api.nvim_set_keymap('n', '<leader>cr', ':G V?<cr>', { noremap = true, silent = true }) -- Open commit browser for revisions
 
 -- Define the function to move or create a split
 _G.win_move = function(key)
@@ -205,6 +203,11 @@ vim.keymap.set('n', '<C-p>', function()
     require('telescope.builtin').find_files()
   end
 end, { desc = '[C]ontrol + P to find files' })
+
+-- Use Ctrl + Shift + P to open Telescope
+vim.keymap.set('n', '<C-S-p>', function()
+  require('telescope.builtin').find_files()
+end, { desc = '[C]ontrol + [S]hift + P to find files' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
